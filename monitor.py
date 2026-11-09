@@ -1,6 +1,7 @@
 import json
 import time
 from datetime import datetime
+from zoneinfo import ZoneInfo
 from pathlib import Path
 from urllib.request import Request, urlopen
 from urllib.error import URLError, HTTPError
@@ -53,7 +54,7 @@ data = {
     "status": status,
     "http_status": http_status,
     "response_time": response_time,
-    "last_update": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    "last_update": datetime.now(ZoneInfo("Europe/Oslo")).strftime("%Y-%m-%d %H:%M:%S")
 }
 
 OUTPUT.parent.mkdir(exist_ok=True)
